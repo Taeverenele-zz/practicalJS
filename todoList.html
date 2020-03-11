@@ -9,24 +9,45 @@
 
     <script>
       var todoList = {
-        todos: ['item 1', 'item 2', 'item 3'],              //var todos = ['item 1', 'item2', 'item 3']
-        displayTodos: function() {                          //function displayTodos() {
-          console.log('My todos:', this.todos);             //  console.log('My todos:', todos)
-        },                                                  //}
-        addTodo: function(todo) {                           //function addTodo(newTodo) {
-          this.todos.push(todo);                            //  todos.push(newTodo);
-          this.displayTodos();                              //  displayTodos();
-        },                                                  //}
-        changeTodo: function(position, newValue) {          //function changeTodo(position, newValue) {
-          this.todos[position] = newValue;                  //  todos[position] = newValue;
-          this.displayTodos();                              //  displayTodos();
-        },                                                  //}
-        deleteTodo: function(position) {                    // function deleteTodo(position) {
-          this.todos.splice(position, 1);                   //   todos.splice(position, 1);
-          this.displayTodos();                              //   displayTodo();
-        }                                                   // }
+        todos: [],
+        displayTodos: function() {
+          if (this.todos.length === 0) {
+            console.log('Your todos list is empty!')
+          } else {
+            console.log('My todos:');
+            for (var i = 0; i < this.todos.length; i++) {
+              if (this.todos[i].completed === true) {
+                console.log('(x)', this.todos[i].todoText);
+              } else {
+                console.log('( )', this.todos[i].todoText);
+              }
+            }
+          }             
+        },                    
+        addTodo: function(todoText) {                
+          this.todos.push({
+            todoText: todoText,
+            completed: false
+          });                         
+          this.displayTodos();          
+        },                             
+        changeTodo: function(position, todoText) {
+          this.todos[position].todoText = todoText;
+          this.displayTodos();                      
+        },                                                 
+        deleteTodo: function(position) {
+          this.todos.splice(position, 1);
+          this.displayTodos();                            
+        },
+        toggleCompleted: function(position) {
+          var todo = this.todos[position];
+          todo.completed = !todo.completed;
+          this.displayTodos();
+        }                                                   
       };
-
+for (var i = 0; i < 3; i++) {
+  console.log('Hey');
+}
 
     </script>
   </body>
