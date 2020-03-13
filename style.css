@@ -1,0 +1,13 @@
+body {
+  max-width: 500px;
+  margin: auto;
+}
+
+h1 {
+  color: blue;
+}
+button {
+  background-color: lightgray;
+  border-radius: 10%;
+  border: black 1px solid;
+}
